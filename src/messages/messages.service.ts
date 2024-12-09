@@ -3,13 +3,7 @@ import { MessagesRepository } from './messages.repository';
 
 @Injectable()
 export class MessagesService {
-  messagesRepo: MessagesRepository;
-
-  constructor() {
-    // Service is creating its own dependencies
-    // This is a bad practice
-    this.messagesRepo = new MessagesRepository();
-  }
+  constructor(public messagesRepo: MessagesRepository) {}
 
   create(content: string) {
     return this.messagesRepo.create(content);
